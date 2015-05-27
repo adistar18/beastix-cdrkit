@@ -10,30 +10,30 @@
 #include <utypes.h>
 #endif
 
-#define ALIGN_SHORT @SIZE_SHORT@
-#define ALIGN_INT @SIZE_INT@
-#define ALIGN_LONG @SIZE_LONG@
-#define ALIGN_LLONG @SIZE_LLONG@
-#define ALIGN_FLOAT @SIZE_FLOAT@
-#define ALIGN_DOUBLE @SIZE_DOUBLE@
-#define ALIGN_PTR @SIZE_PTR@
+#define ALIGN_SHORT 2
+#define ALIGN_INT 4
+#define ALIGN_LONG 8
+#define ALIGN_LLONG 8
+#define ALIGN_FLOAT 4
+#define ALIGN_DOUBLE 8
+#define ALIGN_PTR 8
 
-#define SIZE_SHORT @SIZE_SHORT@
-#define SIZE_INT @SIZE_INT@
-#define SIZE_LONG @SIZE_LONG@
-#define SIZE_LLONG @SIZE_LLONG@
-#define SIZE_FLOAT @SIZE_FLOAT@
-#define SIZE_DOUBLE @SIZE_DOUBLE@
-#define SIZE_PTR @SIZE_PTR@
+#define SIZE_SHORT 2
+#define SIZE_INT 4
+#define SIZE_LONG 8
+#define SIZE_LLONG 8
+#define SIZE_FLOAT 4
+#define SIZE_DOUBLE 8
+#define SIZE_PTR 8
 
 
-#define ALIGN_SMASK @SHORTLESS@
-#define ALIGN_IMASK @INTLESS@
-#define ALIGN_LMASK @LONGLESS@
-#define ALIGN_LLMASK @LLONGLESS@
-#define ALIGN_FMASK @FLOATLESS@
-#define ALIGN_DMASK @DOUBLELESS@
-#define ALIGN_PMASK @PTRLESS@
+#define ALIGN_SMASK 1
+#define ALIGN_IMASK 3
+#define ALIGN_LMASK 7
+#define ALIGN_LLMASK 7
+#define ALIGN_FMASK 3
+#define ALIGN_DMASK 7
+#define ALIGN_PMASK 7
 
 
 /*

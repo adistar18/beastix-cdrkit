@@ -20,97 +20,97 @@
  * Header Files
  */
 #define PROTOTYPES 1	/* if Compiler supports ANSI C prototypes */
-#cmakedefine HAVE_STDARG_H
+#define HAVE_STDARG_H
 	/* to use stdarg.h, else use varargs.h NOTE: SaberC on a Sun has prototypes but no stdarg.h */
 
-#cmakedefine HAVE_STDLIB_H
+#define HAVE_STDLIB_H
 	/* to use general utility defines (malloc(), size_t ...) and general C library prototypes */
 
-#cmakedefine HAVE_STRING_H
+#define HAVE_STRING_H
 	/* to get NULL and ANSI C string function prototypes */
-#cmakedefine HAVE_STRINGS_H
+#define HAVE_STRINGS_H
 	/* to get BSD string function prototypes */
 #define STDC_HEADERS 1	/* if ANSI compliant stdlib.h, stdarg.h, string.h, float.h are present */
-#cmakedefine HAVE_UNISTD_H
+#define HAVE_UNISTD_H
 	/* to get POSIX syscall prototypes XXX sys/file.h fcntl.h (unixstd/fctl)XXX*/
-#cmakedefine HAVE_GETOPT_H
+#define HAVE_GETOPT_H
 	/* to get getopt() prototype from getopt.h instead of unistd.h */
-#cmakedefine HAVE_LIMITS_H
+#define HAVE_LIMITS_H
 	/* to get POSIX numeric limits constants */
 
-#cmakedefine HAVE_FCNTL_H
+#define HAVE_FCNTL_H
 	/* to access, O_XXX constants for open(), otherwise use sys/file.h */
-#cmakedefine HAVE_SYS_FILE_H
+#define HAVE_SYS_FILE_H
 	/* to use O_XXX constants for open() and flock() defs */
-#cmakedefine HAVE_INTTYPES_H
+#define HAVE_INTTYPES_H
 	/* to use UNIX-98 inttypes.h */
-#cmakedefine HAVE_DIRENT_H
+#define HAVE_DIRENT_H
 	/* to use POSIX dirent.h */
 
-#cmakedefine HAVE_ALLOCA_H
+#define HAVE_ALLOCA_H
 	/* if alloca.h exists */
 
-#cmakedefine HAVE_TERMIOS_H
+#define HAVE_TERMIOS_H
 	/* to use POSIX termios.h */
-#cmakedefine HAVE_TERMIO_H
+/* #undef HAVE_TERMIO_H */
 	/* to use SVR4 termio.h */
-#cmakedefine HAVE_PWD_H
+#define HAVE_PWD_H
 	/* if pwd.h exists */
 
-#cmakedefine HAVE_SYS_TIME_H
+#define HAVE_SYS_TIME_H
 	/* may include sys/time.h for struct timeval */
 #define TIME_WITH_SYS_TIME 1   /* may include both time.h and sys/time.h */
 
 #define HAVE_UTIME 1		/* to use AT&T utime() and utimbuf */
 #define HAVE_UTIMES 1		/* to use BSD utimes() and sys/time.h */
 
-#cmakedefine HAVE_UTIME_H
+#define HAVE_UTIME_H
 		/* to use utime.h for the utimbuf structure declaration, else declare struct utimbuf yourself */
 
-#cmakedefine HAVE_SYS_IOCTL_H
+#define HAVE_SYS_IOCTL_H
 		/* if sys/ioctl.h is present */
 
-#cmakedefine HAVE_SYS_PARAM_H
+#define HAVE_SYS_PARAM_H
 		/* if sys/param.h is present */
 
 /* to use wait.h for prototypes and union wait */
-#cmakedefine HAVE_WAIT_H
+#define HAVE_WAIT_H
 /* else use sys/wait.h */
-#cmakedefine define HAVE_SYS_WAIT_H
-#cmakedefine HAVE_SYS_RESOURCE_H
+/* #undef define */
+#define HAVE_SYS_RESOURCE_H
 	/* to use sys/resource.h for rlimit() and wait3() */
 
-#cmakedefine HAVE_SYS_UTSNAME_H
+#define HAVE_SYS_UTSNAME_H
 	/* to use uname() */
 
-#cmakedefine HAVE_SYS_MTIO_H
+/* #undef HAVE_SYS_MTIO_H */
 		/* to use mtio definitions from sys/mtio.h */
 
-#cmakedefine HAVE_SYS_MMAN_H
+#define HAVE_SYS_MMAN_H
 		/* to use definitions for mmap()/madvise()... from sys/mman.h */
 #define MAJOR_IN_SYSMACROS 1	/* if we should include sys/sysmacros.h to get major()/minor()/makedev() */
-#cmakedefine HAVE_SYS_DKIO_H
-#cmakedefine HAVE_SUN_DKIO_H
-#cmakedefine HAVE_POLL_H
+/* #undef HAVE_SYS_DKIO_H */
+/* #undef HAVE_SUN_DKIO_H */
+#define HAVE_POLL_H
 		/* if we may include poll.h to use poll() */
-#cmakedefine HAVE_SYS_POLL_H
+#define HAVE_SYS_POLL_H
 		/* if we may include sys/poll.h to use poll() */
 
 
-#cmakedefine HAVE_NETDB_H
+#define HAVE_NETDB_H
 		/* if we have netdb.h for get*by*() and rcmd() */
-#cmakedefine HAVE_SYS_SOCKET_H
+#define HAVE_SYS_SOCKET_H
 	/* if we have sys/socket.h for socket() */
 
-#cmakedefine HAVE_LINUX_PG_H
+#define HAVE_LINUX_PG_H
 		/* if we may include linux/pg.h for PP ATAPI sypport */
 #define HAVE_ERRNO_DEF 1		/* if we have errno definition in <errno.h> */
 
-#cmakedefine HAVE_ARPA_INET_H
+#define HAVE_ARPA_INET_H
 		/* if we have arpa/inet.h (missing on BeOS) */
 				/* BeOS has inet_ntoa() in <netdb.h> */
 
-#cmakedefine HAVE_ICONV_H
+#define HAVE_ICONV_H
 
 /*
  * Convert to SCHILY name
@@ -129,7 +129,7 @@
 #define HAVE_MEMMOVE 1		/* memmove() is present in libc */
 
 #define HAVE_MLOCK 1		/* mlock() is present in libc */
-#cmakedefine HAVE_MLOCKALL
+#define HAVE_MLOCKALL
 	/* working mlockall() is present in libc */
 #define HAVE_FLOCK 1		/* *BSD flock() is present in libc */
 #define HAVE_SETREUID 1		/* setreuid() is present in libc */
@@ -158,9 +158,9 @@
 #define HAVE_READLINK 1		/* readlink() is present in libc */
 #define HAVE_RENAME 1		/* rename() is present in libc */
 
-#cmakedefine HAVE_RAND 
+/* #undef HAVE_RAND */
 		/* rand() is present in libc */
-#cmakedefine HAVE_DRAND48
+#define HAVE_DRAND48
   /* drand48() is present in libc */
 #define HAVE_SETPRIORITY 1		/* setpriority() is present in libc */
 #define HAVE_NICE 1		/* nice() is present in libc */
@@ -192,10 +192,10 @@
 #define HAVE_SOCKETPAIR 1		/* socketpair() is present in libc/libsocket */
 #define HAVE_GETSERVBYNAME 1	/* getservbyname() is present in libc/libsocket */
 /* inet_ntoa() is present in libc/libsocket */
-#cmakedefine HAVE_INET_NTOA
+#define HAVE_INET_NTOA
 
 /* getnameinfo() is present in libc/libsocket */
-#cmakedefine define HAVE_GETNAMEINFO
+/* #undef define */
 
 /*
  * We need to test for the include files too because Apollo Domain/OS has a
@@ -221,7 +221,7 @@
  */
 
 /* have union wait in wait.h */
-#cmakedefine HAVE_UNION_WAIT
+/* #undef HAVE_UNION_WAIT */
 
 #define HAVE_ST_NSEC 1		/* if struct stat contains st_atim.tv_nsec (nanosecs) */
 #define HAVE_ST_RDEV 1		/* if struct stat contains st_rdev */
@@ -231,9 +231,9 @@
  * Byteorder/Bitorder
  */
 /* If using network byte order             */
-#cmakedefine WORDS_BIGENDIAN
+/* #undef WORDS_BIGENDIAN */
 /* If high bits come first in structures   */
-#cmakedefine BITFIELDS_HTOL
+/* #undef BITFIELDS_HTOL */
 #define	HAVE_C_BIGENDIAN	/* Flag that WORDS_BIGENDIAN test was done */
 #define	HAVE_C_BITFIELDS	/* Flag that BITFIELDS_HTOL test was done  */
 
@@ -241,17 +241,17 @@
  * Types/Keywords
  */
 #define SIZEOF_CHAR 1
-#define SIZEOF_SHORT_INT  @SIZE_SHORT@
-#define SIZEOF_INT  @SIZE_INT@
-#define SIZEOF_LONG_INT @SIZE_LONG@
-#define SIZEOF_LONG_LONG @SIZE_LLONG@
-#define SIZEOF_CHAR_P @SIZE_PTR@
+#define SIZEOF_SHORT_INT  2
+#define SIZEOF_INT  4
+#define SIZEOF_LONG_INT 8
+#define SIZEOF_LONG_LONG 8
+#define SIZEOF_CHAR_P 8
 #define SIZEOF_UNSIGNED_CHAR 1
-#define SIZEOF_UNSIGNED_SHORT_INT @SIZE_SHORT@
-#define SIZEOF_UNSIGNED_INT @SIZE_INT@
-#define SIZEOF_UNSIGNED_LONG_INT  @SIZE_LONG@
-#define SIZEOF_UNSIGNED_LONG_LONG @SIZE_LLONG@
-#define SIZEOF_UNSIGNED_CHAR_P @SIZE_PTR@
+#define SIZEOF_UNSIGNED_SHORT_INT 2
+#define SIZEOF_UNSIGNED_INT 4
+#define SIZEOF_UNSIGNED_LONG_INT  8
+#define SIZEOF_UNSIGNED_LONG_LONG 8
+#define SIZEOF_UNSIGNED_CHAR_P 8
 
 #define HAVE_LONGLONG 1		/* Compiler defines long long type */
 
@@ -260,7 +260,7 @@
  * Critical on some of Debian architectures (EB) */
 /* #define VA_LIST_IS_ARRAY 1		*/
 
-#cmakedefine VA_LIST_IS_ARRAY
+#define VA_LIST_IS_ARRAY
 
 #define GETGROUPS_T gid_t
 #define GID_T		GETGROUPS_T
@@ -279,8 +279,8 @@
  * Misc CC / LD related stuff
  */
 /* If the compiler allows dynamic sized arrays */
-#cmakedefine HAVE_DYN_ARRAYS	
+#define HAVE_DYN_ARRAYS	
 
-#define HOST_SYSTEM "@CMAKE_SYSTEM_NAME@"
-#cmakedefine CDRKIT_VERSION "@CDRKIT_VERSION@"
+#define HOST_SYSTEM "Linux"
+#define CDRKIT_VERSION "1.1.11"
 /*[$Rev: 467 $]" */
