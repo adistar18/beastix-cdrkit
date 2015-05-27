@@ -1,3 +1,11 @@
+PWD != pwd
+OBJ_DIR    := ${PWD}/obj
+BOOTSTRAP  := ${PWD}/../beastix/bootstrap/tools
+CC         := ${BOOTSTRAP}/bin/x86_64-unknown-linux-musl-gcc
+CCFLAGS    := -I${PWD}/include -I${BOOTSTRAP}/include -nostdinc
+
+
+
 include include/build.mk
 include genisoimage/build.mk
 include wodim/build.mk
@@ -12,11 +20,6 @@ include readom/build.mk
 include netscsid/build.mk
 include 3rd-party/dirsplit/build.mk
 
-PWD != pwd
-OBJ_DIR := ${PWD}/obj
-BOOTSTRAP  := ${PWD}/../beastix/bootstrap/tools
-CC         := ${BOOTSTRAP}/bin/x86_64-unknown-linux-musl-gcc
-CCFLAGS    := -I${PWD}/include -I${BOOTSTRAP}/include -nostdinc
 
 
 all: build-genisoimage
