@@ -25,10 +25,10 @@ ${OBJ_DIR}/genisoimage/rsync.o \
 ${OBJ_DIR}/genisoimage/boot-mipsel.o \
 ${OBJ_DIR}/genisoimage/endian.o 
 
-${OBJ_DIR}/genisoimage/%.o: genisoimage/%.c ${OBJ_DIR}/librols.a
+${OBJ_DIR}/genisoimage/%.o: genisoimage/%.c
 	${CC} ${CCFLAGS} -I${SRC_ROOT}/genisoimage -c -DSORTING=0 -DUDF=0 -DPREP_BOOT=1 $< -o $@
 
 
-${OBJ_DIR}/genisoimage/genisoimage: ${GENISOIMAGE_OBJECTS}
+${OBJ_DIR}/genisoimage/genisoimage: ${OBJ_DIR}/librols.a ${GENISOIMAGE_OBJECTS}
 
 build-genisoimage: ${OBJ_DIR}/genisoimage/genisoimage
