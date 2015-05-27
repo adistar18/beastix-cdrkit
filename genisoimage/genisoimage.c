@@ -251,7 +251,7 @@ int	use_udf = 0;
 int	dvd_video = 0;
 #endif
 
-#ifdef SORTING
+#if 0
 int	do_sort = 0;		/* sort file data */
 #endif /* SORTING */
 
@@ -360,7 +360,7 @@ struct ld_option {
 #define	OPTION_H_LIST			1037
 #define	OPTION_CHECK_OLDNAMES		1038
 
-#ifdef SORTING
+#if 0
 #define	OPTION_SORT			1039
 #endif /* SORTING */
 #define	OPTION_UCS_LEVEL		1040
@@ -1836,7 +1836,7 @@ int main(int argc, char *argv[])
 			break;
 		}
 
-#ifdef SORTING
+#if 0
 		case OPTION_SORT:
 			do_sort++;
 			add_sort_list(optarg);
@@ -3260,7 +3260,7 @@ if (check_session == 0)
 	for (n = 0; n < MAX_MAT; n++)
 		gen_del_match(n);
 
-#ifdef SORTING
+#if 0
 	del_sort();
 #endif /* SORTING */
 

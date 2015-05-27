@@ -7,7 +7,7 @@ CCFLAGS    := -I${PWD}/include -I${BOOTSTRAP}/include
 
 
 ${OBJ_DIR}/%.o: %.c
-	${CC} ${CCFLAGS} -I${SRC_ROOT}/include -I${SRC_ROOT}/librols -c  $< -o $@
+	${CC} ${CCFLAGS} -I${SRC_ROOT}/include -I${SRC_ROOT}/genisoimage -I${SRC_ROOT}/librols -c  $< -o $@
 
 
 include include/build.mk
