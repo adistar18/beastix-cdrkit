@@ -17,7 +17,7 @@
 #include "libisofs.h"
 #include "messages.h"
 #include "joliet.h"
-#include "../version.h"
+#include "version.h"
 
 #include <stdlib.h>
 #include <wchar.h>

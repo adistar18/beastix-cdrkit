@@ -38,7 +38,7 @@ static char helptext[][80] = {
 
 
 #define LIBISOFS_WITHOUT_LIBBURN yes
-#include "libisofs.h"
+#include <libisofs.h>
 
 #include <stdio.h>
 #include <stdlib.h>
