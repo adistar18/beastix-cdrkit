@@ -37,8 +37,7 @@
 
 /* APPLE_HYB James Pearson j.pearson@ge.ucl.ac.uk 23/2/2000 */
 
-#include <mconfig.h>
-#include "genisoimage.h"
+#include <genisoimage.h>
 #include <timedefs.h>
 #include <fctldefs.h>
 #ifdef SORTING

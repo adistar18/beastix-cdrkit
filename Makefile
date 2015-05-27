@@ -1,10 +1,13 @@
 PWD != pwd
 OBJ_DIR    := ${PWD}/obj
-SRC_ROOT   :] ${PWD}
+SRC_ROOT   := ${PWD}
 BOOTSTRAP  := ${PWD}/../beastix/bootstrap/tools
 CC         := ${BOOTSTRAP}/bin/x86_64-unknown-linux-musl-gcc
-CCFLAGS    := -I${PWD}/include -I${BOOTSTRAP}/include -nostdinc
+CCFLAGS    := -I${PWD}/include -I${BOOTSTRAP}/include 
 
+
+${OBJ_DIR}/%.o: %.c
+	${CC} ${CCFLAGS} -I${SRC_ROOT}/include -I${SRC_ROOT}/librols -c  $< -o $@
 
 
 include include/build.mk

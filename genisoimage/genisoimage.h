@@ -50,15 +50,7 @@
 #include <standard.h>
 #include <libport.h>
 #include "scsi.h"
-#ifdef JIGDO_TEMPLATE
-#include "jte.h"
-#endif
 
-#ifdef	DVD_VIDEO
-#ifndef	UDF
-#define	UDF
-#endif
-#endif
 
 /*#if	_LFS_LARGEFILE*/
 #ifdef	HAVE_LARGEFILES
@@ -129,9 +121,6 @@ struct directory_entry {
 #ifdef SORTING
 	int		sort;		/* sort weight for entry */
 #endif /* SORTING */
-#ifdef UDF
-	int		udf_file_entry_sector;	/* also used as UDF unique ID */
-#endif
     uint64_t realsize;
 };
 
@@ -424,9 +413,7 @@ extern int	use_chrp_boot;
 #endif	/* PREP_BOOT */
 #endif	/* APPLE_HYB */
 
-#ifdef SORTING
 extern int	do_sort;
-#endif /* SORTING */
 
 /* tree.c */
 extern int stat_filter(char *, struct stat *);
@@ -537,17 +524,6 @@ extern int merge_previous_session(struct directory *,
 											 char *, char *);
 extern int get_session_start(int *);
 
-/* joliet.c */
-#ifdef	UDF
-#   ifdef USE_ICONV
-extern	size_t	convert_to_unicode	(unsigned char *buffer,
-			int size, char *source, struct unls_table *inls);
-#   else
-extern	void	convert_to_unicode	(unsigned char *buffer,
-			int size, char *source, struct unls_table *inls);
-#   endif
-extern	int	joliet_strlen	(const char *string, struct unls_table *inls);
-#endif
 extern unsigned char conv_charset(unsigned char, struct unls_table *,
 											 struct unls_table *);
 extern int joliet_sort_tree(struct directory * node);

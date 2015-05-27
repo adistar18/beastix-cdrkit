@@ -45,6 +45,8 @@
  *		Check file size = finder + rsrc [+ data] is needed
  */
 
+#include <stdio.h>
+#include <stdlib.h>
 #ifdef APPLE_HYB
 
 #include <mconfig.h>
@@ -56,6 +58,8 @@
 #include <netinet/in.h>
 #include "apple.h"
 #include <schily.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #ifdef USE_MAGIC
 #include <magic.h>

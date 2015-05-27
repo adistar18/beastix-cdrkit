@@ -55,7 +55,7 @@
 #include "exclude.h"
 #include <unls.h>	/* For UNICODE translation */
 #include <schily.h>
-#ifdef UDF
+#if 0
 #include "udf.h"
 #endif
 
@@ -243,7 +243,7 @@ int	use_chrp_boot = 0;
 #endif	/* PREP_BOOT */
 #endif	/* APPLE_HYB */
 
-#ifdef UDF
+#if 0
 int	use_udf = 0;
 #endif
 
@@ -431,7 +431,7 @@ struct ld_option {
 
 #define	OPTION_BOOTMIPSEL   		1230
 
-#ifdef UDF
+#if 0
 #define	OPTION_UDF			1500
 #endif
 #ifdef DVD_VIDEO
@@ -489,14 +489,17 @@ struct ld_option {
 
 #define	OPTION_CHRP_BOOT		2042
 
-#define	OPTION_RELOC_ROOT		2043
-#define	OPTION_RELOC_OLD_ROOT		2044
+
 
 #define	OPTION_MAP_FILE			2045
 
-#define	OPTION_ALLOW_LIMITED_SIZE 2046
+
 
 #endif	/* APPLE_HYB */
+
+#define	OPTION_RELOC_ROOT		2043
+#define	OPTION_RELOC_OLD_ROOT		2044
+#define	OPTION_ALLOW_LIMITED_SIZE 2046
 
 static int	save_pname = 0;
 
@@ -657,53 +660,8 @@ static const struct ld_option ld_options[] =
 	{{"sectype", required_argument, NULL, 's'},
 	's', "TYPE", "Set output sector type to e.g. data/xa1/raw", ONE_DASH},
 
-	{{"alpha-boot", required_argument, NULL, OPTION_BOOTALPHA},
-	'\0', "FILE", "Set alpha boot image name (relative to image root)", ONE_DASH},
 
-	{{"hppa-cmdline", required_argument, NULL, OPTION_HPPA_CMDLINE},
-	'\0', "CMDLINE", "Set hppa boot command line (relative to image root)", ONE_DASH},
-	{{"hppa-kernel-32", required_argument, NULL, OPTION_HPPA_KERNEL_32},
-	'\0', "FILE", "Set hppa 32-bit image name (relative to image root)", ONE_DASH},
-	{{"hppa-kernel-64", required_argument, NULL, OPTION_HPPA_KERNEL_64},
-	'\0', "FILE", "Set hppa 64-bit image name (relative to image root)", ONE_DASH},
-	{{"hppa-bootloader", required_argument, NULL, OPTION_HPPA_BOOTLOADER},
-	'\0', "FILE", "Set hppa boot loader file name (relative to image root)", ONE_DASH},
-	{{"hppa-ramdisk", required_argument, NULL, OPTION_HPPA_RAMDISK},
-	'\0', "FILE", "Set hppa ramdisk file name (relative to image root)", ONE_DASH},
 
-	{{"mips-boot", required_argument, NULL, OPTION_BOOTMIPS},
-	'\0', "FILE", "Set mips boot image name (relative to image root)", ONE_DASH},
-
-	{{"mipsel-boot", required_argument, NULL, OPTION_BOOTMIPSEL},
-	'\0', "FILE", "Set mipsel boot image name (relative to image root)", ONE_DASH},
-
-#ifdef JIGDO_TEMPLATE
-	{{"jigdo-jigdo", required_argument, NULL, OPTION_JTJ_OUTPUT},
-	'\0', "FILE", "Produce a jigdo .jigdo file as well as the .iso", ONE_DASH },
-	{{"jigdo-template", required_argument, NULL, OPTION_JTT_OUTPUT},
-	'\0', "FILE", "Produce a jigdo .template file as well as the .iso", ONE_DASH },
-	{{"jigdo-min-file-size", required_argument, NULL, OPTION_JT_MIN_SIZE},
-	'\0', "SIZE", "Minimum size for a file to be listed in the jigdo file", ONE_DASH },
-	{{"jigdo-force-md5", required_argument, NULL, OPTION_JT_INCLUDE},
-	'\0', "PATTERN", "Pattern(s) where files MUST match an externally-supplied MD5sum", ONE_DASH },
-	{{"jigdo-exclude", required_argument, NULL, OPTION_JT_EXCLUDE},
-	'\0', "PATTERN", "Pattern(s) to exclude from the jigdo file", ONE_DASH },
-	{{"jigdo-map", required_argument, NULL, OPTION_JT_PATH_MAP},
-	'\0', "PATTERN1=PATTERN2", "Pattern(s) to map paths (e.g. Debian=/mirror/debian)", ONE_DASH },
-	{{"md5-list", required_argument, NULL, OPTION_JT_MD5_LIST},
-	'\0', "FILE", "File containing MD5 sums of the files that should be checked", ONE_DASH },
-    {{"jigdo-template-compress", required_argument, NULL, OPTION_JT_COMPRESS_ALGO},
-     '\0', "ALGORITHM", "Choose to use gzip or bzip2 compression for template data; default is gzip", ONE_DASH },
-	{{"checksum_algorithm_iso", required_argument, NULL, OPTION_JT_CHECKSUM_ALGO_ISO},
-	'\0', "alg1,alg2,...", "Specify the checksum types desired for the output image", ONE_DASH},
-	{{"checksum_algorithm_template", required_argument, NULL, OPTION_JT_CHECKSUM_ALGO_TMPL},
-	'\0', "alg1,alg2,...", "Specify the checksum types desired for the output jigdo template", ONE_DASH},
-#endif
-
-#ifdef SORTING
-	{ {"sort", required_argument, NULL, OPTION_SORT},
-	'\0', "FILE", "Sort file content locations according to rules in FILE", ONE_DASH },
-#endif /* SORTING */
 
 	{{"split-output", no_argument, NULL, OPTION_SPLIT_OUTPUT},
 	'\0', NULL, "Split output into files of approx. 1GB size", ONE_DASH},
@@ -720,15 +678,6 @@ static const struct ld_option ld_options[] =
 	{{"ucs-level", required_argument, NULL, OPTION_UCS_LEVEL},
 	'\0', "LEVEL", "Set Joliet UCS level (1..3)", ONE_DASH},
 
-#ifdef UDF
-	{{"udf", no_argument, NULL, OPTION_UDF},
-	'\0', NULL, "Generate UDF file system", ONE_DASH},
-#endif
-
-#ifdef DVD_VIDEO
-	{{"dvd-video", no_argument, NULL, OPTION_DVD},
-	'\0', NULL, "Generate DVD-Video compliant UDF file system", ONE_DASH},
-#endif
 
 	{{"uid", required_argument, NULL, OPTION_UID},
 	'\0', "uid", "Make the owner of all files this uid.",
@@ -1558,57 +1507,6 @@ int main(int argc, char *argv[])
 			 */
 			new_boot_entry();
 			break;
-		case OPTION_BOOTALPHA:
-			use_alphaboot++;
-			/* list of pathnames of boot images */
-			add_boot_alpha_filename(optarg);
-			break;
-		case OPTION_HPPA_CMDLINE:
-			use_hppaboot++;
-			add_boot_hppa_cmdline(optarg);
-			break;
-		case OPTION_HPPA_KERNEL_32:
-			use_hppaboot++;
-			add_boot_hppa_kernel_32(optarg);
-			break;
-		case OPTION_HPPA_KERNEL_64:
-			use_hppaboot++;
-			add_boot_hppa_kernel_64(optarg);
-			break;
-		case OPTION_HPPA_BOOTLOADER:
-			use_hppaboot++;
-			add_boot_hppa_bootloader(optarg);
-			break;
-		case OPTION_HPPA_RAMDISK:
-			use_hppaboot++;
-			/* list of pathnames of boot images */
-			add_boot_hppa_ramdisk(optarg);
-			break;
-		case OPTION_BOOTMIPS:
-			use_mipsboot++;
-			/* list of pathnames of boot images */
-			add_boot_mips_filename(optarg);
-			break;
-		case OPTION_BOOTMIPSEL:
-			use_mipselboot++;
-			add_boot_mipsel_filename(optarg);
-			break;
-		case 'B':
-			if (use_sunx86boot)
-				comerrno(EX_BAD,
-				"-sparc-boot and -sunx86-boot are mutual exclusive.\n");
-			use_sparcboot++;
-			/* list of pathnames of boot images */
-			scan_sparc_boot(optarg);
-			break;
-		case OPTION_SUNX86BOOT:
-			if (use_sparcboot)
-				comerrno(EX_BAD,
-				"-sparc-boot and -sunx86-boot are mutual exclusive.\n");
-			use_sunx86boot++;
-			/* list of pathnames of boot images */
-			scan_sunx86_boot(optarg);
-			break;
 		case 'G':
 			use_genboot++;
 			/* pathname of the boot image on disk */
@@ -1623,14 +1521,6 @@ int main(int argc, char *argv[])
 				exit(1);
 #endif
 			}
-			break;
-		case OPTION_SPARCLABEL:
-			/* Sun disk label string */
-			sparc_boot_label(optarg);
-			break;
-		case OPTION_SUNX86LABEL:
-			/* Sun disk label string */
-			sunx86_boot_label(optarg);
 			break;
 		case 'c':
 			use_eltorito++;
@@ -1989,11 +1879,6 @@ int main(int argc, char *argv[])
 				comerrno(EX_BAD, "Illegal UCS Level %d, use 1..3.\n",
 							ucs_level);
 			break;
-#ifdef UDF
-		case OPTION_UDF:
-			use_udf++;
-			break;
-#endif
 
 #ifdef DVD_VIDEO
 		case OPTION_DVD:
@@ -2453,7 +2338,6 @@ int main(int argc, char *argv[])
 #endif	/* APPLE_HYB */
 		case OPTION_ALLOW_LIMITED_SIZE:
 			allow_limited_size++;
-      use_udf++;
 			break;
 		default:
 			susage(1);
@@ -2471,12 +2355,6 @@ parse_input_files:
 	 * XXX This is a hack until we have a decent separate name handling
 	 * XXX for UDF filenames.
 	 */
-	if (dvd_video && use_Joliet) {
-		use_Joliet = 0;
-		fprintf(stderr, "Warning: Disabling Joliet support for DVD-Video.\n");
-	}
-	if (use_udf && !use_Joliet)
-		jlen = 255;
 
 	if (preparer) {
 		if (strlen(preparer) > 128) {
@@ -2900,19 +2778,9 @@ parse_input_files:
 		save_pname = 1;
 	}
 	if (stream_media_size) {
-		if (use_XA || use_RockRidge || use_udf || use_Joliet)
-			comerrno(EX_BAD,
-			"Cannot use XA, Rock Ridge, UDF or Joliet with -stream-media-size\n");
 		if (merge_image)
 			comerrno(EX_BAD,
 			"Cannot use multi session with -stream-media-size\n");
-		if (use_eltorito || use_sparcboot || use_sunx86boot ||
-		    use_genboot || use_prep_boot || hfs_boot_file)
-			comerrno(EX_BAD,
-			"Cannot use boot options with -stream-media-size\n");
-		if (apple_hyb)
-			comerrno(EX_BAD,
-			"Cannot use Apple hybrid options with -stream-media-size\n");
 	}
 
 	if (use_RockRidge) {
@@ -3409,7 +3277,7 @@ if (check_session == 0)
 			fprintf(stderr, merge_warn_msg);
 		exit(1);
 	}
-#ifdef UDF
+#if 0
 	if (use_Joliet || use_udf) {
 #else
 	if (use_Joliet) {
@@ -3449,27 +3317,6 @@ if (check_session == 0)
 			exit(1);
 #endif
 		}
-		if (jtemplate_out || jjigdo_out) {
-			if (!jtemplate_out || !jjigdo_out || !jmd5_list) {
-#ifdef USE_LIBSCHILY
-				comerr("Bad options - need to specify output names for jigdo and template file, and also the md5-list input file!\n");
-#else
-				fprintf(stderr, "Bad options - need to specify output names for jigdo and template file, and also the md5-list input file!\n");
-				exit(1);
-#endif
-			}
-			jtjigdo = fopen(jjigdo_out, "wb");
-			jttemplate = fopen(jtemplate_out, "wb");
-			if (!jtjigdo || !jttemplate) {
-#ifdef USE_LIBSCHILY
-				comerr("Unable to open jigdo template image file\n");
-#else
-				fprintf(stderr, "Unable to open jigdo template image file\n");
-				exit(1);
-#endif
-			}
-			write_jt_header(jttemplate, jtjigdo);
-		}
 	} else if ((outfile == NULL)
                && isatty (fileno (stdout))) {
 		/* FIXME: a cleaner way to override this check? */
@@ -3499,28 +3346,6 @@ if (check_session == 0)
 	 * Start to set up the linked list that we use to track the contents
 	 * of the disc.
 	 */
-#ifdef APPLE_HYB
-#ifdef PREP_BOOT
-	if (apple_hyb || use_prep_boot || use_chrp_boot)
-#else	/* PREP_BOOT */
-	if (apple_hyb)
-#endif	/* PREP_BOOT */
-		outputlist_insert(&hfs_desc);
-#endif	/* APPLE_HYB */
-	if (use_sparcboot || use_sunx86boot)
-		outputlist_insert(&sunlabel_desc);
-	if (use_alphaboot)
-		outputlist_insert(&alphaboot_desc);
-	if (use_hppaboot)
-		outputlist_insert(&hppaboot_desc);
-	if (use_alphaboot || use_hppaboot)
-		outputlist_insert(&alpha_hppa_boot_desc);
-	if (use_mipsboot)
-		outputlist_insert(&mipsboot_desc);
-	if (use_mipselboot)
-		outputlist_insert(&mipselboot_desc);
-	if (use_genboot)
-		outputlist_insert(&genboot_desc);
 	outputlist_insert(&startpad_desc);
 
 	/* PVD for disc. */
@@ -3541,16 +3366,11 @@ if (check_session == 0)
 	/* Finally the last volume descriptor. */
 	outputlist_insert(&end_vol);
 
-#ifdef UDF
-	if (use_udf) {
-		outputlist_insert(&udf_vol_recognition_area_frag);
-	}
-#endif
 
 	/* Insert the version descriptor. */
 	outputlist_insert(&version_desc);
 
-#ifdef UDF
+#if 0
 	if (use_udf) {
 		/*
 		 * Most of the space before sector 256 is wasted when
@@ -3638,7 +3458,7 @@ if (check_session == 0)
 	 * reason, we must insert us after the files content has been
 	 * generated.
 	 */
-#ifdef UDF
+#if 0
 	if (use_udf) {
 		/* Single anchor volume descriptor pointer at end */
 		outputlist_insert(&udf_end_anchor_vol_desc_frag);
@@ -3664,41 +3484,6 @@ if (check_session == 0)
 		}
 	}
 	c = 0;
-	if (use_sparcboot) {
-		if (dopad) {
-			/* Padding before the boot partitions. */
-			outputlist_insert(&interpad_desc);
-			if (interpad_desc.of_size != NULL) {
-				(*interpad_desc.of_size) (last_extent);
-			}
-		}
-		c = make_sun_label();
-		last_extent += c;
-		outputlist_insert(&sunboot_desc);
-		if (dopad) {
-			outputlist_insert(&endpad_desc);
-			if (endpad_desc.of_size != NULL) {
-				(*endpad_desc.of_size) (last_extent);
-			}
-		}
-	} else if (use_sunx86boot) {
-		if (dopad) {
-			/* Padding before the boot partitions. */
-			outputlist_insert(&interpad_desc);
-			if (interpad_desc.of_size != NULL) {
-				(*interpad_desc.of_size) (last_extent);
-			}
-		}
-		c = make_sunx86_label();
-		last_extent += c;
-		outputlist_insert(&sunboot_desc);
-		if (dopad) {
-			outputlist_insert(&endpad_desc);
-			if (endpad_desc.of_size != NULL) {
-				(*endpad_desc.of_size) (last_extent);
-			}
-		}
-	}
 	if (print_size > 0) {
 		if (verbose > 0)
 			fprintf(stderr,
@@ -3742,12 +3527,6 @@ if (check_session == 0)
 				last_extent, last_extent_written);
 	}
 
-	if (jttemplate) {
-		write_jt_footer();
-		fclose(jttemplate);
-	}
-	if (jtjigdo)
-		fclose(jtjigdo);
 
 	if (verbose > 0) {
 #ifdef HAVE_SBRK

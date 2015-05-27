@@ -133,7 +133,7 @@ static void
 #endif
 convert_to_unicode(unsigned char *buffer, int size, char *source, 
 						 struct unls_table *inls);
-static int	joliet_strlen(const char *string, struct nls_table *inls);
+//static int	joliet_strlen(const char *string, struct nls_table *inls);
 #endif
 static void	get_joliet_vol_desc(struct iso_primary_descriptor *jvol_desc);
 static void	assign_joliet_directory_addresses(struct directory *node);
