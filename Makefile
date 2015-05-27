@@ -1,5 +1,6 @@
 PWD != pwd
 OBJ_DIR    := ${PWD}/obj
+SRC_ROOT   :] ${PWD}
 BOOTSTRAP  := ${PWD}/../beastix/bootstrap/tools
 CC         := ${BOOTSTRAP}/bin/x86_64-unknown-linux-musl-gcc
 CCFLAGS    := -I${PWD}/include -I${BOOTSTRAP}/include -nostdinc
