@@ -36,9 +36,9 @@ ${OBJ_DIR}/genisoimage/sha512.o \
 ${OBJ_DIR}/genisoimage/checksum.o
 
 ${OBJ_DIR}/genisoimage/%.o: ${SRC_ROOT/genisoimage}/%.c
-        ${CC} ${CCFLAGS} -c $< -o $@
+	${CC} ${CCFLAGS} -c $< -o $@
 
 
-${OBJ_DIR}/genisoimage:
+${OBJ_DIR}/genisoimage: ${GENISOIMAGE_OBJECTS}
 
 build-genisoimage: ${OBJ_DIR}/genisoimage
