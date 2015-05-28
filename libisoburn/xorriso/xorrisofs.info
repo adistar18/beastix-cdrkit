@@ -1,5 +1,6 @@
-This is xorrisofs.info, produced by makeinfo version 4.8 from
-./xorrisofs.texi.
+This is /home/gareth/beastix-cdrkit/libisoburn/xorriso/xorrisofs.info,
+produced by makeinfo version 4.13 from
+/home/gareth/beastix-cdrkit/libisoburn/xorriso/xorrisofs.texi.
 
 INFO-DIR-SECTION Archiving
 START-INFO-DIR-ENTRY
@@ -2306,37 +2307,37 @@ File: xorrisofs.info,  Node: ConceptIdx,  Prev: CommandIdx,  Up: Top
 
 
 Tag Table:
-Node: Top397
-Node: Overview1103
-Node: Standards1541
-Node: Insert3732
-Node: Xorriso5570
-Node: Options6709
-Node: Loading7436
-Node: SetInsert9732
-Node: SetProduct14148
-Node: SetCompl19321
-Node: SetExtras21917
-Node: SetHide30591
-Node: ImageId31899
-Node: Bootable36067
-Node: SystemArea41247
-Node: Charset55811
-Node: Jigdo56837
-Node: Miscellaneous61104
-Node: Examples62748
-Node: ExSimple63234
-Node: ExGraft63713
-Node: ExMkisofs64960
-Node: ExGrowisofs66213
-Node: ExIncBackup67385
-Node: ExIncBckAcc70503
-Node: ExBootable72179
-Node: Files74271
-Node: Seealso75345
-Node: Bugreport76001
-Node: Legal76582
-Node: CommandIdx77477
-Node: ConceptIdx92909
+Node: Top490
+Node: Overview1196
+Node: Standards1634
+Node: Insert3825
+Node: Xorriso5663
+Node: Options6802
+Node: Loading7529
+Node: SetInsert9825
+Node: SetProduct14241
+Node: SetCompl19414
+Node: SetExtras22010
+Node: SetHide30684
+Node: ImageId31992
+Node: Bootable36160
+Node: SystemArea41340
+Node: Charset55904
+Node: Jigdo56930
+Node: Miscellaneous61197
+Node: Examples62841
+Node: ExSimple63327
+Node: ExGraft63806
+Node: ExMkisofs65053
+Node: ExGrowisofs66306
+Node: ExIncBackup67478
+Node: ExIncBckAcc70596
+Node: ExBootable72272
+Node: Files74364
+Node: Seealso75438
+Node: Bugreport76094
+Node: Legal76675
+Node: CommandIdx77570
+Node: ConceptIdx93002
 
 End Tag Table

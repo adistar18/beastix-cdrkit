@@ -1,5 +1,6 @@
-This is xorriso.info, produced by makeinfo version 4.8 from
-./xorriso.texi.
+This is /home/gareth/beastix-cdrkit/libisoburn/xorriso/xorriso.info,
+produced by makeinfo version 4.13 from
+/home/gareth/beastix-cdrkit/libisoburn/xorriso/xorriso.texi.
 
 INFO-DIR-SECTION Archiving
 START-INFO-DIR-ENTRY
@@ -5635,60 +5636,60 @@ File: xorriso.info,  Node: ConceptIdx,  Prev: CommandIdx,  Up: Top
 
 
 Tag Table:
-Node: Top420
-Node: Overview1375
-Node: Model3405
-Node: Media6311
-Node: Methods8982
-Node: Drives11557
-Node: Extras15099
-Node: Processing19558
-Node: Dialog23178
-Node: Commands24856
-Node: ArgSort26533
-Node: AqDrive28025
-Node: Loading31070
-Node: Insert47999
-Node: SetInsert58213
-Node: Manip67033
-Node: CmdFind76813
-Node: Filter94447
-Node: Writing99069
-Node: SetWrite109200
-Node: Bootable129906
-Node: Jigdo151756
-Node: Charset156003
-Node: Exception159318
-Node: DialogCtl165438
-Node: Inquiry168036
-Node: Navigate176478
-Node: Verify184776
-Node: Restore194603
-Node: Emulation203207
-Node: Scripting213595
-Node: Frontend221366
-Node: Examples230973
-Node: ExDevices232151
-Node: ExCreate232817
-Node: ExDialog234102
-Node: ExGrowing235367
-Node: ExModifying236172
-Node: ExBootable236676
-Node: ExCharset237228
-Node: ExPseudo238120
-Node: ExCdrecord239018
-Node: ExMkisofs239335
-Node: ExGrowisofs240675
-Node: ExException241810
-Node: ExTime242264
-Node: ExIncBackup242723
-Node: ExRestore246713
-Node: ExRecovery247646
-Node: Files248216
-Node: Seealso249515
-Node: Bugreport250238
-Node: Legal250819
-Node: CommandIdx251830
-Node: ConceptIdx268711
+Node: Top513
+Node: Overview1468
+Node: Model3498
+Node: Media6404
+Node: Methods9075
+Node: Drives11650
+Node: Extras15192
+Node: Processing19651
+Node: Dialog23271
+Node: Commands24949
+Node: ArgSort26626
+Node: AqDrive28118
+Node: Loading31163
+Node: Insert48092
+Node: SetInsert58306
+Node: Manip67126
+Node: CmdFind76906
+Node: Filter94540
+Node: Writing99162
+Node: SetWrite109293
+Node: Bootable129999
+Node: Jigdo151849
+Node: Charset156096
+Node: Exception159411
+Node: DialogCtl165531
+Node: Inquiry168129
+Node: Navigate176571
+Node: Verify184869
+Node: Restore194696
+Node: Emulation203300
+Node: Scripting213688
+Node: Frontend221459
+Node: Examples231066
+Node: ExDevices232244
+Node: ExCreate232910
+Node: ExDialog234195
+Node: ExGrowing235460
+Node: ExModifying236265
+Node: ExBootable236769
+Node: ExCharset237321
+Node: ExPseudo238213
+Node: ExCdrecord239111
+Node: ExMkisofs239428
+Node: ExGrowisofs240768
+Node: ExException241903
+Node: ExTime242357
+Node: ExIncBackup242816
+Node: ExRestore246806
+Node: ExRecovery247739
+Node: Files248309
+Node: Seealso249608
+Node: Bugreport250331
+Node: Legal250912
+Node: CommandIdx251923
+Node: ConceptIdx268804
 
 End Tag Table
